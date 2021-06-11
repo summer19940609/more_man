@@ -7,9 +7,7 @@
             "name": "1.0.0"
         }
     },
-    "deviceConfig": {
-        
-    },
+    "deviceConfig": {},
     "module": {
         "package": "com.example.more_man",
         "name": ".MyApplication",
@@ -45,7 +43,15 @@
                 "description": "$string:mainability_description",
                 "label": "$string:entry_MainAbility",
                 "type": "page",
-                "launchType": "standard"
+                "launchType": "standard",
+                "metaData": {
+                    "customizeData": [
+                        {
+                            "name": "hwc-theme",
+                            "value": "androidhwext:style/Theme.Emui.NoTitleBar"
+                        }
+                    ]
+                }
             }
         ],
         "js": [

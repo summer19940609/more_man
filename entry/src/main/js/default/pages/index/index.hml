@@ -1,16 +1,23 @@
 <div class="container">
-    <text class="title">
-        基金助手
-    </text>
-    
-    <list class="fund-wraper">
-        <list-item for="{{ fundList }}" class="fund-item">
-            <text class="fund-item-title">{{ $item.f14 }}</text>
-            <text class="fund-item-title">{{ $item.f2 }}</text>
-            <text class="fund-item-title">{{ $item.f4 }}</text>
-            <text class="fund-item-title">{{ $item.f3 }}%</text>
-        </list-item>
-    </list>
+
+    <refresh onrefresh="onRefresh" refreshing="{{ refreshing }}" type="pulldown">
+<!--        基金指数显示区-->
+        <div class="fund-wrapper">
+            <div for="{{ fundList }}" class="fund-item" scrolleffect="no">
+                <text class="fund-item-title">{{ $item.f14 }}</text>
+                <text class="fund-item-title">{{ $item.f2 }}</text>
+                <text class="fund-item-title {{ $item.f4 > 0 ? 'text-red': 'text-green' }}">{{ $item.f4 }}</text>
+                <text class="fund-item-title {{ $item.f3 > 0 ? 'text-red': 'text-green' }}">{{ $item.f3 }}%</text>
+            </div>
+        </div>
+
+<!--        总收益显示区-->
+
+<!--        具体持仓显示区-->
+
+    </refresh>
+
+    <text>哈哈哈</text>
 
 
 </div>
