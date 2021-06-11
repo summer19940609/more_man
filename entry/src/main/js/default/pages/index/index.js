@@ -11,7 +11,6 @@ export default {
             url: FUND_INDEX_API,
             responseType: "json",
             success: response => {
-                console.info(`====> response的值为: ${JSON.stringify(response)}`);
                 if (response.code !== 200) {
                     this.refreshing = false
                     return
