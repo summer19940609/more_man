@@ -1,0 +1,16 @@
+<div class="container">
+    <text class="title">
+        基金助手
+    </text>
+    
+    <list class="fund-wraper">
+        <list-item for="{{ fundList }}" class="fund-item">
+            <text>{{ $item.f14 }}</text>
+            <text>{{ $item.f2 }}</text>
+            <text>{{ $item.f4 }}</text>
+            <text>{{ $item.f3 }}%</text>
+        </list-item>
+    </list>
+
+
+</div>
