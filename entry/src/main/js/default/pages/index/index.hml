@@ -3,7 +3,7 @@
     <refresh onrefresh="onRefresh" refreshing="{{ refreshing }}" type="pulldown">
 <!--        基金指数显示区-->
         <div class="fund-wrapper">
-            <div for="{{ fundList }}" class="fund-item" scrolleffect="no">
+            <div for="{{ fundIndexList }}" class="fund-item" scrolleffect="no">
                 <text class="fund-item-title">{{ $item.f14 }}</text>
                 <text class="fund-item-title">{{ $item.f2 }}</text>
                 <text class="fund-item-title {{ $item.f4 > 0 ? 'text-red': 'text-green' }}">{{ $item.f4 }}</text>
@@ -14,215 +14,36 @@
 <!--        总收益显示区-->
 
 <!--        具体持仓显示区-->
-        <div class="fund-detail-box">
+        <div class="fund-detail-box" for="{{fund in fundList}}">
             <div class="fund-detail-item">
-                <div style="width: 100%;">
-                    <div style="width: 60%;">
-                        <text style="text-align: left;">
-                            招行中证白酒
-                        </text>
-                    </div>
-                    <div style="width: 40%;">
-                        <text style="text-align: right;">
-                            15：00
-                        </text>
-                    </div>
+                <div class="fund-detail-name">
+                    <text style="width: 60%;text-align: left;">
+                        {{ fund.SHORTNAME }} {{ fund.code }}
+                    </text>
+                    <text style="width: 40%;text-align: right;">
+                        {{ fund.GZTIME }}
+                    </text>
                 </div>
-                <div style="width: 100%;">
-                    <div style="width: 40%;text-align: left;">
+                <div class="fund-detail-data">
+                    <div class="flex-column fsje">
                         <text>份数/金额</text>
-                        <text>2444。34</text>
-                        <text>22222</text>
+                        <text>{{ fund.num }}</text>
+                        <text>{{ fund.CYJE }}</text>
                     </div>
-                    <div style="width: 20%;">
-                        
-                    </div>
-                    <div style="width: 40%;text-align: right;">
+                    <div class="flex-column gjsy">
                         <text>估计收益</text>
-                        <text>2。3%</text>
-                        <text>22222</text>
+                        <text>{{ fund.GSZZL }}%</text>
+                        <text>{{ fund.GSSY }}</text>
                     </div>
                 </div>
             </div>
-            <div class="fund-detail-item">
-                <div style="width: 100%;">
-                    <div style="width: 60%;">
-                        <text style="text-align: left;">
-                            招行中证白酒
-                        </text>
-                    </div>
-                    <div style="width: 40%;">
-                        <text style="text-align: right;">
-                            15：00
-                        </text>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <div style="width: 40%;text-align: left;">
-                        <text>份数/金额</text>
-                        <text>2444。34</text>
-                        <text>22222</text>
-                    </div>
-                    <div style="width: 20%;">
 
-                    </div>
-                    <div style="width: 40%;text-align: right;">
-                        <text>估计收益</text>
-                        <text>2。3%</text>
-                        <text>22222</text>
-                    </div>
-                </div>
-            </div>
-            <div class="fund-detail-item">
-                <div style="width: 100%;">
-                    <div style="width: 60%;">
-                        <text style="text-align: left;">
-                            招行中证白酒
-                        </text>
-                    </div>
-                    <div style="width: 40%;">
-                        <text style="text-align: right;">
-                            15：00
-                        </text>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <div style="width: 40%;text-align: left;">
-                        <text>份数/金额</text>
-                        <text>2444。34</text>
-                        <text>22222</text>
-                    </div>
-                    <div style="width: 20%;">
-
-                    </div>
-                    <div style="width: 40%;text-align: right;">
-                        <text>估计收益</text>
-                        <text>2。3%</text>
-                        <text>22222</text>
-                    </div>
-                </div>
-            </div>
-            <div class="fund-detail-item">
-                <div style="width: 100%;">
-                    <div style="width: 60%;">
-                        <text style="text-align: left;">
-                            招行中证白酒
-                        </text>
-                    </div>
-                    <div style="width: 40%;">
-                        <text style="text-align: right;">
-                            15：00
-                        </text>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <div style="width: 40%;text-align: left;">
-                        <text>份数/金额</text>
-                        <text>2444。34</text>
-                        <text>22222</text>
-                    </div>
-                    <div style="width: 20%;">
-
-                    </div>
-                    <div style="width: 40%;text-align: right;">
-                        <text>估计收益</text>
-                        <text>2。3%</text>
-                        <text>22222</text>
-                    </div>
-                </div>
-            </div>
-            <div class="fund-detail-item">
-                <div style="width: 100%;">
-                    <div style="width: 60%;">
-                        <text style="text-align: left;">
-                            招行中证白酒
-                        </text>
-                    </div>
-                    <div style="width: 40%;">
-                        <text style="text-align: right;">
-                            15：00
-                        </text>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <div style="width: 40%;text-align: left;">
-                        <text>份数/金额</text>
-                        <text>2444。34</text>
-                        <text>22222</text>
-                    </div>
-                    <div style="width: 20%;">
-
-                    </div>
-                    <div style="width: 40%;text-align: right;">
-                        <text>估计收益</text>
-                        <text>2。3%</text>
-                        <text>22222</text>
-                    </div>
-                </div>
-            </div>
-            <div class="fund-detail-item">
-                <div style="width: 100%;">
-                    <div style="width: 60%;">
-                        <text style="text-align: left;">
-                            招行中证白酒
-                        </text>
-                    </div>
-                    <div style="width: 40%;">
-                        <text style="text-align: right;">
-                            15：00
-                        </text>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <div style="width: 40%;text-align: left;">
-                        <text>份数/金额</text>
-                        <text>2444。34</text>
-                        <text>22222</text>
-                    </div>
-                    <div style="width: 20%;">
-
-                    </div>
-                    <div style="width: 40%;text-align: right;">
-                        <text>估计收益</text>
-                        <text>2。3%</text>
-                        <text>22222</text>
-                    </div>
-                </div>
-            </div>
-            <div class="fund-detail-item">
-                <div style="width: 100%;">
-                    <div style="width: 60%;">
-                        <text style="text-align: left;">
-                            招行中证白酒
-                        </text>
-                    </div>
-                    <div style="width: 40%;">
-                        <text style="text-align: right;">
-                            15：00
-                        </text>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <div style="width: 40%;text-align: left;">
-                        <text>份数/金额</text>
-                        <text>2444。34</text>
-                        <text>22222</text>
-                    </div>
-                    <div style="width: 20%;">
-
-                    </div>
-                    <div style="width: 40%;text-align: right;">
-                        <text>估计收益</text>
-                        <text>2。3%</text>
-                        <text>22222</text>
-                    </div>
-                </div>
-            </div>
         </div>
 
+        <button if="{{ !hasSync }}" class="button" type="capsule" value="去同步"></button>
     </refresh>
 
-    <text>哈哈哈</text>
+
 
 
 </div>
