@@ -5,10 +5,10 @@
     
     <list class="fund-wraper">
         <list-item for="{{ fundList }}" class="fund-item">
-            <text>{{ $item.f14 }}</text>
-            <text>{{ $item.f2 }}</text>
-            <text>{{ $item.f4 }}</text>
-            <text>{{ $item.f3 }}%</text>
+            <text class="fund-item-title">{{ $item.f14 }}</text>
+            <text class="fund-item-title">{{ $item.f2 }}</text>
+            <text class="fund-item-title">{{ $item.f4 }}</text>
+            <text class="fund-item-title">{{ $item.f3 }}%</text>
         </list-item>
     </list>
 

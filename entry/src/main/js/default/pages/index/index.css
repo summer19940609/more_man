@@ -2,12 +2,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    background-color: #bbcfec;
+    height: 100vh;
 }
 
 .title {
-    font-size: 40px;
-    color: #000000;
-    opacity: 0.9;
+    font-size: 20px;
+}
+
+.fund-wraper {
+    margin-top: 10px;
+    background-color: #FFFFFF;
+    border: 10px solid #FFFFFF;
+    background-color: yellow;
+    height: auto;
+}
+
+.fund-item-title {
+    font-size: 18px;
+    width: 30%;
+    text-align: center;
 }
 
 @media screen and (device-type: tablet) and (orientation: landscape) {
@@ -32,7 +47,7 @@
     }
 
     .title {
-        font-size: 100px;
+        font-size: 40px;
         color: #FFFFFF;
     }
 }
