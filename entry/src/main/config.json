@@ -1,70 +1,71 @@
 {
-    "app": {
-        "bundleName": "com.example.more_man",
-        "vendor": "example",
-        "version": {
-            "code": 1000000,
-            "name": "1.0.0"
-        }
-    },
-    "deviceConfig": {},
-    "module": {
-        "package": "com.example.more_man",
-        "name": ".MyApplication",
-        "mainAbility": "com.example.more_man.MainAbility",
-        "deviceType": [
-            "phone"
-        ],
-        "reqPermissions": [
-            {
-                "name": "ohos.permission.INTERNET"
-            }
-        ],
-        "distro": {
-            "deliveryWithInstall": true,
-            "moduleName": "entry",
-            "moduleType": "entry",
-            "installationFree": false
-        },
-        "abilities": [
-            {
-                "skills": [
-                    {
-                        "entities": [
-                            "entity.system.home"
-                        ],
-                        "actions": [
-                            "action.system.home"
-                        ]
-                    }
-                ],
-                "name": "com.example.more_man.MainAbility",
-                "icon": "$media:icon",
-                "description": "$string:mainability_description",
-                "label": "$string:entry_MainAbility",
-                "type": "page",
-                "launchType": "standard",
-                "metaData": {
-                    "customizeData": [
-                        {
-                            "name": "hwc-theme",
-                            "value": "androidhwext:style/Theme.Emui.NoTitleBar"
-                        }
-                    ]
-                }
-            }
-        ],
-        "js": [
-            {
-                "pages": [
-                    "pages/index/index"
-                ],
-                "name": "default",
-                "window": {
-                    "designWidth": 720,
-                    "autoDesignWidth": true
-                }
-            }
-        ]
+  "app": {
+    "bundleName": "com.example.more_man",
+    "vendor": "example",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
     }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.example.more_man",
+    "name": ".MyApplication",
+    "mainAbility": "com.example.more_man.MainAbility",
+    "deviceType": [
+      "phone"
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": false
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "name": "com.example.more_man.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:entry_MainAbility",
+        "type": "page",
+        "launchType": "standard",
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.NoTitleBar"
+            }
+          ]
+        }
+      }
+    ],
+    "js": [
+      {
+        "pages": [
+          "pages/index/index",
+          "pages/news/news"
+        ],
+        "name": "default",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": true
+        }
+      }
+    ]
+  }
 }

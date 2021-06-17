@@ -1,49 +1,115 @@
 <div class="container">
 
-    <refresh onrefresh="onRefresh" refreshing="{{ refreshing }}" type="pulldown">
-<!--        基金指数显示区-->
-        <div class="fund-wrapper">
-            <div for="{{ fundIndexList }}" class="fund-item" scrolleffect="no">
-                <text class="fund-item-title">{{ $item.f14 }}</text>
-                <text class="fund-item-title">{{ $item.f2 }}</text>
-                <text class="fund-item-title {{ $item.f4 > 0 ? 'text-red': 'text-green' }}">{{ $item.f4 }}</text>
-                <text class="fund-item-title {{ $item.f3 > 0 ? 'text-red': 'text-green' }}">{{ $item.f3 }}%</text>
-            </div>
-        </div>
+    <div class="main-container">
+        <refresh onrefresh="onRefresh" refreshing="{{ refreshing }}" type="pulldown" class="main-refresh">
+        <!--        基金指数显示区-->
 
-<!--        总收益显示区-->
+            <text class="text-h1 text-fund-index" if="{{ !hasSync }}">
+                指数数据
+            </text>
 
-<!--        具体持仓显示区-->
-        <div class="fund-detail-box" for="{{fund in fundList}}">
-            <div class="fund-detail-item">
-                <div class="fund-detail-name">
-                    <text style="width: 60%;text-align: left;">
-                        {{ fund.SHORTNAME }} {{ fund.code }}
-                    </text>
-                    <text style="width: 40%;text-align: right;">
-                        {{ fund.GZTIME }}
-                    </text>
-                </div>
-                <div class="fund-detail-data">
-                    <div class="flex-column fsje">
-                        <text>份数/金额</text>
-                        <text>{{ fund.num }}</text>
-                        <text>{{ fund.CYJE }}</text>
-                    </div>
-                    <div class="flex-column gjsy">
-                        <text>估计收益</text>
-                        <text>{{ fund.GSZZL }}%</text>
-                        <text>{{ fund.GSSY }}</text>
-                    </div>
+            <div class="fund-wrapper" if="{{ !hasSync }}">
+                <div for="{{ fundIndexList }}" class="fund-item" scrolleffect="no">
+                    <text class="fund-item-title fund-item-name">{{ $item.f14 }}</text>
+                    <text class="fund-item-title fund-item-value">{{ $item.f2 }}</text>
+                    <text class="fund-item-title {{ $item.f4 > 0 ? 'text-red': 'text-green' }}">{{ $item.f4 }}</text>
+                    <text class="fund-item-title {{ $item.f3 > 0 ? 'text-red': 'text-green' }}">{{ $item.f3 }}%</text>
                 </div>
             </div>
 
-        </div>
+        <!--        总收益显示区-->
 
-        <button if="{{ !hasSync }}" class="button" type="capsule" value="去同步"></button>
-    </refresh>
+        <!--        具体持仓显示区-->
+<!--            <text class="text-h1 text-fav-data">-->
+<!--                我的自选-->
+<!--            </text>-->
 
+            <list class="fund-detail-box" if="{{ hasSync }}" focusable="false">
+                <list-item>
+                    <text class="text-h1 text-fund-index">
+                        指数数据
+                    </text>
+                </list-item>
 
+                <list-item>
+                    <div class="fund-wrapper">
+                        <div for="{{ fundIndexList }}" class="fund-item" scrolleffect="no">
+                            <text class="fund-item-title fund-item-name">{{ $item.f14 }}</text>
+                            <text class="fund-item-title fund-item-value">{{ $item.f2 }}</text>
+                            <text class="fund-item-title {{ $item.f4 > 0 ? 'text-red': 'text-green' }}">{{ $item.f4 }}</text>
+                            <text class="fund-item-title {{ $item.f3 > 0 ? 'text-red': 'text-green' }}">{{ $item.f3 }}%</text>
+                        </div>
+                    </div>
+                </list-item>
 
+                <list-item>
+                    <text class="text-h1">
+                        预计收益
+                    </text>
+                </list-item>
+                <list-item>
+                    <div class="fund-sum-box">
+                        <text class="fund-sum-text">日收益</text>
+                        <text class="fund-sum-text {{ dayIncomePercent > 0 ? 'text-red' : 'text-green' }}">{{ dayIncome }}</text>
+                        <text class="fund-sum-text {{ dayIncomePercent > 0 ? 'text-red' : 'text-green' }}">{{ dayIncomePercent }}%</text>
+                    </div>
+                </list-item>
 
+                <list-item>
+                    <text class="text-h1 text-fav-data">
+                        我的自选
+                    </text>
+                </list-item>
+
+                <list-item class="fund-detail-item" for="{{ fund in fundList }}">
+                    <div class="fund-detail-name">
+                        <text style="width: 60%;text-align: left;">
+                            {{ fund.SHORTNAME }} {{ fund.code }}
+                        </text>
+                        <text style="width: 40%;text-align: right;">
+                            {{ fund.GZTIME }}
+                        </text>
+                    </div>
+                    <div class="fund-detail-data">
+                        <div class="flex-column fsje">
+                            <text>份数/金额</text>
+                            <text>{{ fund.num }}</text>
+                            <text>{{ fund.CYJE }}</text>
+                        </div>
+                        <div class="flex-column gjsy">
+                            <text>估计收益</text>
+                            <text class="{{ fund.GSZZL > 0 ? 'text-red': 'text-green' }}">{{ fund.GSZZL }}%</text>
+                            <text class="{{ fund.GSSY > 0 ? 'text-red': 'text-green' }}">{{ fund.GSSY }}</text>
+                        </div>
+                    </div>
+                </list-item>
+            </list>
+
+            <div class="null-data-area" if="{{ !hasSync }}">
+                <image src="/common/images/null-data.png" class="null-data-img"></image>
+                <button class="go-sync-button" type="capsule" value="去同步" onclick="goToSync"></button>
+            </div>
+
+        </refresh>
+    </div>
+
+    <toolbar class="toolbar-container">
+        <toolbar-item icon='common/images/toolbar-fund.png' value='基金' onclick="goToPath">   </toolbar-item>
+        <toolbar-item icon='common/images/toolbar-default.png' value='导航2' onclick="goToPath"></toolbar-item>
+        <toolbar-item icon='common/images/toolbar-default.png' value='导航3'  >   </toolbar-item>
+        <toolbar-item icon='common/images/toolbar-default.png' value='导航4' >   </toolbar-item>
+    </toolbar>
+
+    <dialog id="syncDialog"> 
+        <div class="loginDialog"> 
+            <div class="formItem"> 
+                <input id="accountInput" type="text" headericon="/common/images/account.png" placeholder="请输入账号" onchange="inputAccount"></input>
+            </div> 
+            <div class="formItem"> 
+                <input id="pwdInput" type="password" headericon="/common/images/password.png" placeholder="请输入密码" onchange="inputPwd"></input>
+            </div> 
+            <button class="btn-sync" onclick="sync" value="同步"></button>
+        </div> 
+    </dialog> 
+             
 </div>

@@ -1,0 +1,8 @@
+@import '../../common/css/commom.css';
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+}

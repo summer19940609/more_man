@@ -1,0 +1,14 @@
+<div class="container">
+
+    <div class="main-container">
+        哈哈 第二
+    </div>
+
+    <toolbar class="toolbar-container">
+        <toolbar-item icon='common/images/toolbar-fund.png' value='基金' onclick="goToPath">   </toolbar-item>
+        <toolbar-item icon='common/images/toolbar-default.png' value='导航2' onclick="goToPath"></toolbar-item>
+        <toolbar-item icon='common/images/toolbar-default.png' value='导航3'  >   </toolbar-item>
+        <toolbar-item icon='common/images/toolbar-default.png' value='导航4' >   </toolbar-item>
+    </toolbar>
+
+</div>
